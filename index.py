@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import math
 print('hello %s !' % 'helingfeng')
 
 print('''line1
@@ -63,22 +64,24 @@ print(test['array'][1])
 # >>> bool('')
 # False
 
+
 def my_max(x, y):
     if x > y:
         return x
     else:
         return y
 
+
 print(my_max(12, 9))
 print(my_max(8, 16))
 
-import math
 
 def quadratic(a, b, c):
     n1 = -b + math.sqrt(b*b - 4*a*c)
     n2 = -b - math.sqrt(b*b - 4*a*c)
     m = 2*a
-    return n1/m , n2/m
+    return n1/m, n2/m
+
 
 print('quadratic(2, 3, 1) =', quadratic(2, 3, 1))
 print('quadratic(1, 3, -4) =', quadratic(1, 3, -4))
@@ -89,3 +92,54 @@ elif quadratic(1, 3, -4) != (1.0, -4.0):
     print('测试失败')
 else:
     print('测试成功')
+
+
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+
+print(add_end())
+print(add_end())
+
+
+def add_test(L=1):
+    L = L + 1
+    return L
+
+
+print(add_test())
+print(add_test())
+
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+
+print(calc(1, 2, 3))
+
+num = [1, 2, 3]
+print(calc(*num))
+
+def calc_test(t, numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n + t
+    return sum
+
+print(calc_test(1, [1, 2, 3]))
+
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+
+def person_test(name, age, kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+
+
+person('Michael', 30)
+person('Bob', 35, city='Beijing')
+
+extra = {'city': 'Beijing', 'job': 'Engineer'}
+person('Jack', 24, **extra)
+person_test('Jack', 24, extra)
