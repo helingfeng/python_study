@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from functools import reduce
 import math
 print('hello %s !' % 'helingfeng')
 
@@ -222,8 +223,6 @@ L2 = list(map(normalize, L1))
 print(L2)
 
 
-from functools import reduce
-
 def prod(L):
     def fn(x, y):
         return x * y
@@ -231,3 +230,17 @@ def prod(L):
 
 
 print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+
+
+def createCounter():
+    index = 0
+
+    def counter():
+        nonlocal index
+        index = index + 1
+        return index
+    return counter
+
+
+counterA = createCounter()
+print(counterA(), counterA(), counterA(), counterA(), counterA())  # 1 2 3 4 5
