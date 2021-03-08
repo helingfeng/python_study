@@ -143,3 +143,13 @@ person('Bob', 35, city='Beijing')
 extra = {'city': 'Beijing', 'job': 'Engineer'}
 person('Jack', 24, **extra)
 person_test('Jack', 24, extra)
+
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+person('Jack', 24, city='Beijing', job='Engineer')
+
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+
+person('Jack', 24, 3, city='Beijing', job='Engineer')
