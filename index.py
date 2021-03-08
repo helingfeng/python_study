@@ -111,16 +111,19 @@ def add_test(L=1):
 print(add_test())
 print(add_test())
 
+
 def calc(*numbers):
     sum = 0
     for n in numbers:
         sum = sum + n * n
     return sum
 
+
 print(calc(1, 2, 3))
 
 num = [1, 2, 3]
 print(calc(*num))
+
 
 def calc_test(t, numbers):
     sum = 0
@@ -128,10 +131,13 @@ def calc_test(t, numbers):
         sum = sum + n * n + t
     return sum
 
+
 print(calc_test(1, [1, 2, 3]))
+
 
 def person(name, age, **kw):
     print('name:', name, 'age:', age, 'other:', kw)
+
 
 def person_test(name, age, kw):
     print('name:', name, 'age:', age, 'other:', kw)
@@ -144,12 +150,33 @@ extra = {'city': 'Beijing', 'job': 'Engineer'}
 person('Jack', 24, **extra)
 person_test('Jack', 24, extra)
 
+
 def person(name, age, *, city, job):
     print(name, age, city, job)
 
+
 person('Jack', 24, city='Beijing', job='Engineer')
+
 
 def person(name, age, *args, city, job):
     print(name, age, args, city, job)
 
+
 person('Jack', 24, 3, city='Beijing', job='Engineer')
+
+
+def findMinAndMax(L):
+    if len(L) <= 0:
+        return (None, None)
+    min = max = L[0]
+    if len(L) == 1:
+        return (min, max)
+    for num in L[1:]:
+        if num > max:
+            max = num
+        if num < min:
+            min = num
+    return (min, max)
+
+
+findMinAndMax([7, 1, 3, 9, 5])
