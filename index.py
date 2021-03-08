@@ -185,6 +185,7 @@ L1 = ['Hello', 'World', 18, 'Apple', None]
 L2 = [word.lower() for word in L1 if isinstance(word, str)]
 print(L2)
 
+
 def triangles():
     L = [1]
     yield L
@@ -203,9 +204,30 @@ def triangles():
         L = L1
         yield L
 
+
 gle = triangles()
 print(next(gle))
 print(next(gle))
 print(next(gle))
 print(next(gle))
 print(next(gle))
+
+
+def normalize(name):
+    return name[0].upper() + name[1:].lower()
+
+
+L1 = ['adam', 'LISA', 'barT']
+L2 = list(map(normalize, L1))
+print(L2)
+
+
+from functools import reduce
+
+def prod(L):
+    def fn(x, y):
+        return x * y
+    return reduce(fn, L)
+
+
+print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
