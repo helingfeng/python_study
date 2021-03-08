@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import hello_module
 from functools import reduce
 import math
 print('hello %s !' % 'helingfeng')
@@ -244,3 +245,7 @@ def createCounter():
 
 counterA = createCounter()
 print(counterA(), counterA(), counterA(), counterA(), counterA())  # 1 2 3 4 5
+
+
+hello_module.test()
+print(hello_module.__doc__)
