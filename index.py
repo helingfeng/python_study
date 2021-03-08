@@ -180,3 +180,32 @@ def findMinAndMax(L):
 
 
 findMinAndMax([7, 1, 3, 9, 5])
+
+L1 = ['Hello', 'World', 18, 'Apple', None]
+L2 = [word.lower() for word in L1 if isinstance(word, str)]
+print(L2)
+
+def triangles():
+    L = [1]
+    yield L
+
+    n = 2
+    while True:
+        size = len(L)
+        L1 = []
+        for i, num in enumerate(L):
+            if i == 0:
+                L1.append(1)
+            else:
+                L1.append(L[i] + L[i-1])
+            if i == (size - 1):
+                L1.append(1)
+        L = L1
+        yield L
+
+gle = triangles()
+print(next(gle))
+print(next(gle))
+print(next(gle))
+print(next(gle))
+print(next(gle))
