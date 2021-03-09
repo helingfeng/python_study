@@ -249,3 +249,46 @@ print(counterA(), counterA(), counterA(), counterA(), counterA())  # 1 2 3 4 5
 
 hello_module.test()
 print(hello_module.__doc__)
+
+
+class Student(object):
+    def __init__(self, name, gender):
+        self.__name = name
+        self.__gender = gender
+
+    def get_gender(self):
+        return self.__gender
+
+    def set_gender(self, gender):
+        self.__gender = gender
+
+
+class Student(object):
+    count = 0
+
+    def __init__(self, name):
+        Student.count = Student.count + 1
+        self.name = name
+
+
+class Screen(object):
+
+    @property
+    def width(self):
+        return self._width
+
+    @width.setter
+    def width(self, value):
+        self._width = value
+
+    @property
+    def height(self):
+        return self._height
+
+    @height.setter
+    def height(self, value):
+        self._height = value
+
+    @property
+    def resolution(self):
+        return self._width * self._height
