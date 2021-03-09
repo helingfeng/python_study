@@ -4,6 +4,7 @@
 import hello_module
 from functools import reduce
 import math
+
 print('hello %s !' % 'helingfeng')
 
 print('''line1
@@ -51,6 +52,7 @@ print(s)
 test = {'array': (1, [2, 3])}
 print(test['array'][1])
 
+
 # >>> int('123')
 # 123
 # >>> int(12.34)
@@ -79,10 +81,10 @@ print(my_max(8, 16))
 
 
 def quadratic(a, b, c):
-    n1 = -b + math.sqrt(b*b - 4*a*c)
-    n2 = -b - math.sqrt(b*b - 4*a*c)
-    m = 2*a
-    return n1/m, n2/m
+    n1 = -b + math.sqrt(b * b - 4 * a * c)
+    n2 = -b - math.sqrt(b * b - 4 * a * c)
+    m = 2 * a
+    return n1 / m, n2 / m
 
 
 print('quadratic(2, 3, 1) =', quadratic(2, 3, 1))
@@ -200,7 +202,7 @@ def triangles():
             if i == 0:
                 L1.append(1)
             else:
-                L1.append(L[i] + L[i-1])
+                L1.append(L[i] + L[i - 1])
             if i == (size - 1):
                 L1.append(1)
         L = L1
@@ -227,6 +229,7 @@ print(L2)
 def prod(L):
     def fn(x, y):
         return x * y
+
     return reduce(fn, L)
 
 
@@ -240,12 +243,12 @@ def createCounter():
         nonlocal index
         index = index + 1
         return index
+
     return counter
 
 
 counterA = createCounter()
 print(counterA(), counterA(), counterA(), counterA(), counterA())  # 1 2 3 4 5
-
 
 hello_module.test()
 print(hello_module.__doc__)
