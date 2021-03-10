@@ -316,3 +316,14 @@ except ValueError as e:
     print('ValueError')
 except UnicodeError as e:
     print('UnicodeError')
+
+import json
+
+s_obj = dict(name='小明', age=20, hobbies=list(['football', 'basketball']))
+sj = json.dumps(s_obj, ensure_ascii=False)
+
+print('json => ' + sj)
+
+r_obj = json.loads(sj)
+print('obj => ', r_obj)
+
