@@ -327,3 +327,52 @@ print('json => ' + sj)
 r_obj = json.loads(sj)
 print('obj => ', r_obj)
 
+import re
+
+
+def is_valid_email(addr):
+    regular = r'^[\w|\.]+@\w+\.\w+'
+    return re.match(regular, addr)
+
+
+def name_of_email(addr):
+    regular = r'^<?([\s|\w|\.]*)>?\s{0,1}[\w|\.]*@\w+\.\w+'
+    return re.match(regular, addr).group(1)
+
+
+print(name_of_email('<Tom Paris> tom@voyager.org'))
+print(name_of_email('tom@voyager.org'))
+
+assert name_of_email('<Tom Paris> tom@voyager.org') == 'Tom Paris'
+assert name_of_email('tom@voyager.org') == 'tom'
+print('ok')
+
+from datetime import datetime
+
+t = 1429417201.0
+print(datetime.fromtimestamp(t))
+
+now = datetime.now()
+print(now)
+
+now = datetime.utcnow()
+print(now)
+
+import re
+from datetime import datetime, timezone, timedelta
+
+
+def to_timestamp(dt_str, tz_str):
+    zone = re.match(r'^UTC([+-]\d+):(\d+)', tz_str)
+    h = int(zone.group(1))
+    dt = datetime.strptime(dt_str, '%Y-%m-%d %H:%M:%S')
+    return dt.replace(tzinfo=timezone(timedelta(hours=h))).timestamp()
+
+# 测试:
+t1 = to_timestamp('2015-6-1 08:10:30', 'UTC+7:00')
+assert t1 == 1433121030.0, t1
+
+t2 = to_timestamp('2015-5-31 16:10:30', 'UTC-09:00')
+assert t2 == 1433121030.0, t2
+
+print('ok')
