@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
+import random
+import time
 from multiprocessing import Pool
-import os, time, random
 
 
 def long_time_task(name):
